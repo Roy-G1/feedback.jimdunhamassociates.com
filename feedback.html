@@ -125,15 +125,18 @@
       <h1>Tell us what happened</h1>
       <p>We read every message and follow up when requested.</p>
 
-      <!--
-        This uses "mailto" so the visitor's email app opens with
-        all the fields filled in and addressed to your inbox.
-      -->
+      <!-- FormSubmit: sends directly to help@storagemgmtsolutions.com -->
       <form
-        action="mailto:help@storagemgmtsolutions.com?subject=Feedback%20-%20Jim%20Dunham%20%26%20Associates"
+        action="https://formsubmit.co/help@storagemgmtsolutions.com"
         method="POST"
-        enctype="text/plain"
       >
+        <!-- Subject line of the email you receive -->
+        <input type="hidden" name="_subject" value="Feedback - Jim Dunham &amp; Associates" />
+        <!-- After successful submit, go to your thank-you page -->
+        <input type="hidden" name="_next" value="https://feedback.jimdunhamassociates.com/thanks.html" />
+        <!-- Disable FormSubmit captcha (optional) -->
+        <input type="hidden" name="_captcha" value="false" />
+
         <label for="feedback">Your feedback</label>
         <textarea id="feedback" name="Feedback" required></textarea>
 
