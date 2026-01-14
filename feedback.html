@@ -4,8 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Share private feedback | Jim Dunham &amp; Associates</title>
+
+  <!-- Tab icon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
   <style>
-    :root { --bg:#f7f7f7; --card:#ffffff; --fg:#111; --muted:#666; --border:#e5e5e5; --btn:#111; --btnfg:#fff; }
+    :root {
+      --bg:#050505;        /* almost black */
+      --card:#151515;      /* dark gray card */
+      --fg:#f3f4f6;        /* light gray text */
+      --muted:#9ca3af;     /* softer gray */
+      --border:#27272a;    /* gray border */
+      --accent:#ef4444;    /* red to match logo */
+      --accent-dark:#b91c1c;
+    }
     * { box-sizing:border-box; }
     body {
       margin:0;
@@ -13,49 +25,111 @@
       background:var(--bg);
       color:var(--fg);
     }
-    .shell { max-width:760px; margin:0 auto; padding:32px 16px 40px; }
+    .shell {
+      max-width:760px;
+      margin:0 auto;
+      padding:32px 16px 40px;
+    }
+    .logo {
+      display:block;
+      max-width:260px;
+      margin:0 auto 18px;
+    }
     .card {
       background:var(--card);
       border-radius:18px;
       padding:22px 22px 28px;
-      box-shadow:0 8px 20px rgba(0,0,0,.06);
+      box-shadow:0 8px 24px rgba(0,0,0,.7);
+      border:1px solid var(--border);
     }
-    a { color:inherit; text-decoration:none; }
-    .back { font-size:14px; color:var(--muted); }
-    h1 { margin:10px 0 6px; font-size:26px; }
-    p { margin:0 0 18px; color:var(--muted); }
-    label { display:block; margin:14px 0 6px; font-weight:600; font-size:14px; }
-    input, textarea {
+    a {
+      color:inherit;
+      text-decoration:none;
+    }
+    .back {
+      font-size:14px;
+      color:var(--muted);
+      display:inline-flex;
+      align-items:center;
+      gap:4px;
+      margin-bottom:6px;
+    }
+    .back:hover { color:var(--fg); }
+
+    h1 {
+      margin:8px 0 6px;
+      font-size:26px;
+      color:var(--accent);
+    }
+    p {
+      margin:0 0 18px;
+      color:var(--muted);
+    }
+
+    label {
+      display:block;
+      margin:14px 0 6px;
+      font-weight:600;
+      font-size:14px;
+    }
+    input,
+    textarea {
       width:100%;
       padding:11px 12px;
       border-radius:10px;
       border:1px solid var(--border);
+      background:#020617;
+      color:var(--fg);
       font-size:15px;
       font-family:inherit;
     }
-    textarea { min-height:140px; resize:vertical; }
-    .hint { font-size:12px; color:var(--muted); margin-top:3px; }
+    input::placeholder,
+    textarea::placeholder {
+      color:#6b7280;
+    }
+    textarea {
+      min-height:140px;
+      resize:vertical;
+    }
+    .hint {
+      font-size:12px;
+      color:var(--muted);
+      margin-top:3px;
+    }
+
     button {
-      margin-top:18px;
+      margin-top:20px;
       padding:11px 18px;
       border-radius:12px;
-      border:1px solid var(--btn);
-      background:var(--btn);
-      color:var(--btnfg);
+      border:1px solid var(--accent-dark);
+      background:var(--accent);
+      color:#fef2f2;
       font-weight:600;
       font-size:15px;
       cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+    button:hover {
+      background:var(--accent-dark);
     }
   </style>
 </head>
 <body>
   <main class="shell">
+    <img src="jda-logo.png" alt="Jim Dunham &amp; Associates" class="logo" />
+
     <section class="card">
       <a class="back" href="index.html">← Back</a>
+
       <h1>Tell us what happened</h1>
       <p>We read every message and follow up when requested.</p>
 
-      <!-- TODO: replace FORM_ACTION with your Formspree (or other) endpoint later -->
+      <!-- TODO:
+           Replace FORM ACTION below with your real form endpoint
+           (e.g. Formspree: https://formspree.io/f/YOUR_FORM_ID)
+      -->
       <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <label for="feedback">Your feedback</label>
         <textarea id="feedback" name="feedback" required></textarea>
@@ -70,10 +144,12 @@
         <label for="name">Name (optional)</label>
         <input id="name" name="name" />
 
-        <!-- After submit, send them to thanks page -->
+        <!-- After submit, send them to the thank-you page on this subdomain -->
         <input type="hidden" name="_redirect" value="https://feedback.jimdunhamassociates.com/thanks.html" />
 
-        <button type="submit">Send feedback</button>
+        <button type="submit">
+          Send feedback
+        </button>
       </form>
     </section>
   </main>
