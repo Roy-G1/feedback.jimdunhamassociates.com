@@ -5,18 +5,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Share private feedback | Jim Dunham &amp; Associates</title>
 
-  <!-- Tab icon -->
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <style>
     :root {
-      --bg:#050505;        /* almost black */
-      --card:#151515;      /* dark gray card */
-      --fg:#f3f4f6;        /* light gray text */
-      --muted:#9ca3af;     /* softer gray */
-      --border:#27272a;    /* gray border */
-      --accent:#ef4444;    /* red to match logo */
-      --accent-dark:#b91c1c;
+      --bg:#ffffff;
+      --card:#ffffff;
+      --fg:#111827;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --accent:#d90429;
+      --accent-dark:#9b021d;
     }
     * { box-sizing:border-box; }
     body {
@@ -39,8 +38,8 @@
       background:var(--card);
       border-radius:18px;
       padding:22px 22px 28px;
-      box-shadow:0 8px 24px rgba(0,0,0,.7);
       border:1px solid var(--border);
+      box-shadow:0 8px 20px rgba(15,23,42,.06);
     }
     a {
       color:inherit;
@@ -78,14 +77,14 @@
       padding:11px 12px;
       border-radius:10px;
       border:1px solid var(--border);
-      background:#020617;
+      background:#ffffff;
       color:var(--fg);
       font-size:15px;
       font-family:inherit;
     }
     input::placeholder,
     textarea::placeholder {
-      color:#6b7280;
+      color:#9ca3af;
     }
     textarea {
       min-height:140px;
@@ -103,7 +102,7 @@
       border-radius:12px;
       border:1px solid var(--accent-dark);
       background:var(--accent);
-      color:#fef2f2;
+      color:#ffffff;
       font-weight:600;
       font-size:15px;
       cursor:pointer;
@@ -126,26 +125,27 @@
       <h1>Tell us what happened</h1>
       <p>We read every message and follow up when requested.</p>
 
-      <!-- TODO:
-           Replace FORM ACTION below with your real form endpoint
-           (e.g. Formspree: https://formspree.io/f/YOUR_FORM_ID)
+      <!--
+        This uses "mailto" so the visitor's email app opens with
+        all the fields filled in and addressed to your inbox.
       -->
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form
+        action="mailto:help@storagemgmtsolutions.com?subject=Feedback%20-%20Jim%20Dunham%20%26%20Associates"
+        method="POST"
+        enctype="text/plain"
+      >
         <label for="feedback">Your feedback</label>
-        <textarea id="feedback" name="feedback" required></textarea>
+        <textarea id="feedback" name="Feedback" required></textarea>
 
         <label for="contact">Contact (phone or email)</label>
-        <input id="contact" name="contact" required />
+        <input id="contact" name="Contact" required />
         <div class="hint">Required so we can reach you if needed.</div>
 
         <label for="property">Property</label>
-        <input id="property" name="property" required />
+        <input id="property" name="Property" required />
 
         <label for="name">Name (optional)</label>
-        <input id="name" name="name" />
-
-        <!-- After submit, send them to the thank-you page on this subdomain -->
-        <input type="hidden" name="_redirect" value="https://feedback.jimdunhamassociates.com/thanks.html" />
+        <input id="name" name="Name" />
 
         <button type="submit">
           Send feedback
