@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Share private feedback | Jim Dunham &amp; Associates</title>
+  <style>
+    :root { --bg:#f7f7f7; --card:#ffffff; --fg:#111; --muted:#666; --border:#e5e5e5; --btn:#111; --btnfg:#fff; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--fg);
+    }
+    .shell { max-width:760px; margin:0 auto; padding:32px 16px 40px; }
+    .card {
+      background:var(--card);
+      border-radius:18px;
+      padding:22px 22px 28px;
+      box-shadow:0 8px 20px rgba(0,0,0,.06);
+    }
+    a { color:inherit; text-decoration:none; }
+    .back { font-size:14px; color:var(--muted); }
+    h1 { margin:10px 0 6px; font-size:26px; }
+    p { margin:0 0 18px; color:var(--muted); }
+    label { display:block; margin:14px 0 6px; font-weight:600; font-size:14px; }
+    input, textarea {
+      width:100%;
+      padding:11px 12px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      font-size:15px;
+      font-family:inherit;
+    }
+    textarea { min-height:140px; resize:vertical; }
+    .hint { font-size:12px; color:var(--muted); margin-top:3px; }
+    button {
+      margin-top:18px;
+      padding:11px 18px;
+      border-radius:12px;
+      border:1px solid var(--btn);
+      background:var(--btn);
+      color:var(--btnfg);
+      font-weight:600;
+      font-size:15px;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <a class="back" href="index.html">← Back</a>
+      <h1>Tell us what happened</h1>
+      <p>We read every message and follow up when requested.</p>
+
+      <!-- TODO: replace FORM_ACTION with your Formspree (or other) endpoint later -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label for="feedback">Your feedback</label>
+        <textarea id="feedback" name="feedback" required></textarea>
+
+        <label for="contact">Contact (phone or email)</label>
+        <input id="contact" name="contact" required />
+        <div class="hint">Required so we can reach you if needed.</div>
+
+        <label for="property">Property</label>
+        <input id="property" name="property" required />
+
+        <label for="name">Name (optional)</label>
+        <input id="name" name="name" />
+
+        <!-- After submit, send them to thanks page -->
+        <input type="hidden" name="_redirect" value="https://feedback.jimdunhamassociates.com/thanks.html" />
+
+        <button type="submit">Send feedback</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
