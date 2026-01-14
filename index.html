@@ -10,12 +10,12 @@
 
   <style>
     :root {
-      --bg:#050505;        /* almost black */
-      --card:#151515;      /* dark gray card */
-      --fg:#f3f4f6;        /* light gray text */
-      --muted:#9ca3af;     /* softer gray */
-      --border:#27272a;    /* gray border */
-      --accent:#ef4444;    /* red to match logo */
+      --bg:#ffffff;        /* white background */
+      --card:#ffffff;      /* white card */
+      --fg:#111827;        /* near-black text */
+      --muted:#6b7280;     /* gray text */
+      --border:#e5e7eb;    /* light gray border */
+      --accent:#d90429;    /* red to match logo style */
     }
     * { box-sizing:border-box; }
     body {
@@ -38,8 +38,8 @@
       background:var(--card);
       border-radius:18px;
       padding:26px 22px 30px;
-      box-shadow:0 8px 24px rgba(0,0,0,.7);
       border:1px solid var(--border);
+      box-shadow:0 8px 20px rgba(15,23,42,.06);
     }
     h1 {
       margin:0 0 6px;
@@ -58,7 +58,7 @@
     }
     .btn {
       display:flex;
-      flex-direction:column;   /* icon on top, label under */
+      flex-direction:column;   /* icon on top, label underneath */
       align-items:center;
       justify-content:center;
       padding:16px 16px 14px;
@@ -67,13 +67,8 @@
       text-decoration:none;
       font-weight:600;
       font-size:15px;
-      color:var(--fg);
-      background:#111827;
-      transition:transform .05s ease-out, box-shadow .05s ease-out;
-    }
-    .btn:hover {
-      transform:translateY(-1px);
-      box-shadow:0 6px 14px rgba(0,0,0,.6);
+      color:#ffffff;
+      transition:transform .05s ease-out, box-shadow .05s ease-out, filter .05s ease-out;
     }
     .btn .icon {
       font-size:26px;
@@ -83,17 +78,20 @@
     .btn .label {
       text-transform:none;
     }
+    .btn:hover {
+      transform:translateY(-1px);
+      box-shadow:0 6px 14px rgba(15,23,42,.12);
+      filter:brightness(1.03);
+    }
     /* Green thumbs-up button */
     .btn.good {
       background:#16a34a;
       border-color:#15803d;
-      color:#ecfdf3;
     }
     /* Orange thumbs-down button */
     .btn.bad {
       background:#f97316;
       border-color:#ea580c;
-      color:#fff7ed;
     }
 
     .footer {
